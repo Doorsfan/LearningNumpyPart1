@@ -38,7 +38,9 @@
    
    Next up, i want to look into of how to perform better structures of SQL queries
 
-=====================================================================================
+============================================================================
+
+
    Time taken: 2-3 Weeks approximately
 
 
