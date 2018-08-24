@@ -20,35 +20,127 @@ from numpy.lib import recfunctions as rfn
 #All rights reserved to The SciPy community.
 
 #===================================================================================
-
-#===================================================================================
-#                     OVERVIEW
-# This is part 1 of my series of Learning Projects in terms of NumPy.
-#
-# I intend to make a Post Mortem document of this learning experience, where i categorise
-# different milestones in the learning of it - what could have been done better, what should
-# i have done differently, etc.
-#
-# I intend to also document this document a bit better - in terms of indexing so that people
-# can find things easier.
-#
-# This is to eleviate the struggle of finding where the right part of the script is, and which part
-# should be reformed/moved.
-#
 #====================================================================================
 #
 #                    INDEXING
-#                  /* TO DO */
+#                  Index 1.0 - Basics
+#                  Index 1.1 - Splits
+#                  Index 1.2 - No Copies
+#                  Index 1.3 - Shallow Copy/View
+#                  Index 1.4 - Deep Copy
+#                  Index 1.5 - Broadcasting
+#                  Index 1.6 - Indexing
+#                  Index 1.7 - Reductions
+#                  Index 1.8 - Structured Arrays
+#                  Index 1.9 - Mean/STD/Variance
+#                  Index 2.0 - Linear Algebra
+#                  Index 2.1 - Allclose Interaction
+#                  Index 2.2 - SVD
+#                  Index 2.3 - VDot
+#                  Index 2.4 - Choose
+#                  Index 2.5 - Compression
+#                  Index 2.6 - Cumprod/Cumsum/Inner Product
+#                  Index 2.7 - Tensordot
+#                  Index 2.8 - Numpy.ndarray.fill
+#                  Index 2.9 - np.imag
+#                  Index 3.0 - np.prod
+#                  Index 3.1 - np.put
+#                  Index 3.2 - np.putmask                 
+#                  Index 3.3 - numpy.real
+#                  Index 3.4 - numpy.sum
+#                  Index 3.5 - numpy.argmax
+#                  Index 3.6 - np.unravel_index
+#                  Index 3.7 - numpy.argmin
+#                  Index 3.8 - np.argsort
+#                  Index 3.9 - numpy.ptp  
+#                  Index 4.0 - numpy.searchsorted
+#                  Index 4.1 - np.sort           
+#                  Index 4.2 - np.all
+#                  Index 4.3 - numpy.any
+#                  Index 4.4 - numpy.nonzero
+#                  Index 4.5 - numpy.where()
+#                  Index 4.6 - numpy.array_split()
+#                  Index 4.7 - numpy.column_stack
+#                  Index 4.8 - numpy.concatenate
+#                  Index 4.9 - numpy.diagonal
+#                  Index 5.0 - numpy.dsplit
+#                  Index 5.1 - numpy.dstack
+#                  Index 5.2 - numpy.hsplit
+#                  Index 5.3 - numpy.hstack
+#                  Index 5.4 - numpy.ndarray.item
+#                  Index 5.5 - numpy.newaxis
+#                  Index 5.6 - numpy.ravel
+#                  Index 5.7 - np.repeat
+#                  Index 5.8 - np.reshape
+#                  Index 5.9 - np.resize
+#                  Index 6.0 - numpy.squeeze
+#                  Index 6.1 - numpy.swapaxes
+#                  Index 6.2 - Slicing and np.index_exp
+#                  Index 6.3 - numpy.take
+#                  Index 6.4 - numpy.transpose
+#                  Index 6.5 - numpy.vsplit
+#                  Index 6.6 - numpy.vstack
+#                  Index 6.7 - numpy.astype
+#                  Index 6.8 - numpy.atleast_1d
+#                  Index 6.9 - numpy.atleast_2d
+#                  Index 7.0 - numpy.atleast_3d
+#                  Index 7.1 - numpy.mat
+#                  Index 7.2 - numpy.arange
+#                  Index 7.3 - numpy.array
+#                  Index 7.4 - numpy.copy
+#                  Index 7.5 - numpy.empty
+#                  Index 7.6 - numpy.empty_like
+#                  Index 7.7 - numpy.eye
+#                  Index 7.8 - numpy.fromfile
+#                  Index 7.9 - numpy.fromfunction
+#                  Index 8.0 - numpy.identity
+#                  Index 8.1 - numpy.linspace
+#                  Index 8.2 - numpy.mgrid
+#                  Index 8.3 - numpy.ogrid
+#                  Index 8.4 - numpy.ones
+#                  Index 8.5 - numpy.ones_like
+#                  Index 8.6 - numpy.zeros
+#                  Index 8.7 - numpy.zeros_like
+#
+#
+#
 #====================================================================================
 #
 #                  POST MORTEM
-#                 /* TO DO */
+#       -------------------------
+#   DIFFICULTIES: 
+#   There were some parts of this specific tutorial and overview that i missed out on.
+#   Whilst the actual mathematics and what not were not of very hard difficulty,
+#   there were some parts that were lost unto me.
+#   
+#   Most notably was the higher level of Mathematics, that were kind of hard for me to figure out.
+#   All i had to go on, was documentation outside of the actual function backgrounds and documentation.
+#  
+#   WHAT I LEARNED:
+#   I felt like i learned a lot of Matris dynamics, a bit of implicit conversion, broadcasting
+#   Some mathematical operations, some pattern recognition
+#
+#   There also were some instances of where functional subsectioning and lambda partitionings 
+#   in the documentation were to be of something relevant to talk about - But, that's more on the level
+#   of that i recall it bypassingly.
+#
+#   WHAT WENT WRONG:
+#   I think partially, failure to fully realize some of the higher levels of dynamics along with lack of integration
+#   of speed optimization, caused a failure of accounting of deeper dynamics.
+#  
+#   past this, i think application of real modelling in terms of a real project, needs to be done.
+#   And partially, some better balance must be applied in the amount of time done/taken.
+#
+#   WHAT'S NEXT:
+#   Next up, i want to look into of how to perform better structures of SQL queries
+#
 #=====================================================================================
 #       TIME TAKEN: 2-3 Weeks approximately
 #=====================================================================================
 
 
 
+#BASICS - Index 1.0
 print("=================== SHOWCASING basics ======================\n")
 
 a = np.arange(15).reshape(3, 5) #Np produces an evenly spaced range within the given interval
@@ -503,6 +595,9 @@ print("\n")
 a = np.floor(10*np.random.random((2,12)))
 print("Showcasing of the basic 2,12 Matris: \n" + str(a) + "\n")
 
+
+#Index 1.1 -> Splits
+
 print("================ SHOWCASING SPLITS ======================\n")
 #Horizontal split of 3 parts
 print("Showcasing a 3 part Horizontal split of the 2,12 Matris: \n")
@@ -526,6 +621,7 @@ print("============== SHOWCASING OF SPLITS OVER ===================\n")
 
 #Following is some showcasing of different bindings of namings and where no Copy occurs.
 
+# Index 1.2 -> No Copies
 print("========== NO COPIES OPERATIONS SECTION BEGINS ===========")
 a = np.arange(12)
 print("Initialize a basic array. Showcasing of the Array: \n" + str(a) + "\n")
@@ -549,6 +645,8 @@ f(a)
 print("\n")
 print("============ NO COPIES OPERATION SECTION ENDED =================")
 print("\n")
+
+#Index 1.3 Shallow Copy/View
 print("============ VIEW OR SHALLOW COPY SECTION BEGINS ===============\n")
 
 #If we wish to produce a view to inspect the same data, but by virtue of another object
@@ -601,6 +699,8 @@ print("Showcasing of change in Slice, causes change of data in Underlying struct
 
 print("================== VIEW OR SHALLOW COPY SECTION ENDS ===========\n")
 
+#Index 1.4 Deep Copy
+
 print("================ DEEP COPY SECTION BEGINS ============\n")
 
 d = a.copy() #A new array object with new data is created
@@ -622,6 +722,8 @@ print("==================== END OF DEEP COPY SECTION =================\n")
 
 #It also consumes less memory, because implicit Broadcasting rules can circumvent allocation of greater
 #resource costs. 
+
+#Index 1.5 Broadcasting
 
 print("======================= BROADCASTING SECTION BEGINS ==================\n")
 
@@ -688,6 +790,7 @@ print("================= BROADCASTING SECTION ENDS ================\n")
 
 #In terms of NumPy, we can combine the aspects of accessing by virtue of indexes, through other Arrays
 
+#Index 1.6 Indexing
 print("================= INDEXING SECTION BEGINS ================\n")
 
 
@@ -935,6 +1038,12 @@ print("Showcasing the result of [3,2,4]: \n" + str((result[3,2,4])) + "\n")
 
 print("Showcasing the result of a[3]+b[2]*c[4]: \n" + str((a[3]+b[2]*c[4])) + "\n")
 
+print("================= INDEXING SECTION OVER ================\n")
+
+#Index 1.7 - Reductions
+
+print("================= SHOWCASING REDUCTIONS ===============\n")
+
 #We can also implement reduce function calls as follows
 def ufunc_reduce(ufct, *vectors):
     vs = np.ix_(*vectors)
@@ -970,9 +1079,13 @@ print("Showcasing reduction with initialization of a 2,2,2 Matris on axis 0 thro
 #In terms of where we would not be able to apply reduction in terms of ufuncs without an identity, we can use reduce with initialization to np.inf
 print("Showcasing of reduction with np.inf initial setting: \n " + str((np.minimum.reduce([], initial=np.inf))) + "\n")
 
+print("================= REDUCTION SECTION OVER ================\n")
+
 #However, attempting to perform this reduction on an empty array with no identity, causes value errors.
 
-print("Showcasing Structured Arrays \n")
+#Index 1.8 - Structured Arrays
+
+print("================= STRUCTURED ARRAYS BEGINS ================\n")
 
 #Structured arrays are ndarrays whose datatype is a composition of simpler datatypes organized as a sequence of named fields.
 
@@ -1448,6 +1561,8 @@ print("Showcasing their covariance matris: \n" + str(np.cov(X)) + "\n")
 #We can also, if we want to - calculate the mean - specified along a said axis
 #To obtain precision, we can use float64, where of float16 are used for computing float32 intermediates
 
+#Index 1.9 -> Mean/STD/Variance
+
 a = np.array([[0, 0], [1, 1]])
 mean = np.mean(a)
 print("Showcasing the mean of a basic array of 4 elements: \n" + str(a) + "\n" + str(mean) + "\n")
@@ -1639,6 +1754,7 @@ print("The ASSUMED var of 4.0 and 0.5, is: " + str(e) + "\n" )
 #As far as multi-valued Matrises in terms of into ([[1,2], [3,4]])
 #I have not managed to figure out how the interaction works out in terms of Variance.
 
+#Index 2.0 - Linear Algebra
 
 print("===================== LINEAR ALGEBRA SECTION ======================\n")
 
@@ -1833,6 +1949,10 @@ print("Showcasing the dot product, where we get the Matrix product: \n" + str(c)
 #https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html#numpy.dot
 #
 
+
+
+
+
 #There is further examples that we can showcase
 #Commented out prints for brevity and readability
 a = np.arange(3*4*5*6).reshape((3,4,5,6)) #Is a range from 0 to 359, 6 width
@@ -1887,6 +2007,8 @@ c = np.outer(x, [3, 1, 5]) #Amount of times each element from the base array app
 
 print("Showcasing the product of outer summing with numerals across base letter array: \n" + str(c) + "\n")
 
+
+
 #We can also perform Singular value Decomposition, if we want
 #If the input value unto svd is a 2D array, it is factorized as 
 #   u @ np.diag(s) @ vh = (u * s) @ vh
@@ -1919,6 +2041,10 @@ b = np.random.randn(2, 7, 8, 3) + 1j*np.random.randn(2, 7, 8, 3) #A randonly ini
 #print("Showcasing the second base initialized structure: \n" + str(b) + "\n") Not printed for Brevity's sake
 print("Showcasing the shape of the second structure: \n" + str(b.shape) + "\n")
 
+print("========================= SHOWCASING OF LINEAR ALGEBRA SECTION OVER ====================\n")
+
+#Index 2.1 - Allclose Interaction
+
 print("=========================== SHOWCASING SOME ALLCLOSE INTERACTION ==============\n")
 
 #If we wish to denote if two variables are within a tolerable relative difference, we can check that with np.allclose
@@ -1939,6 +2065,8 @@ print("Showcasing result of allclose comparison of nan's with equal_nan: \n" + s
 
 print("==================== END OF SHOWCASING ALLCLOSE INTERACTION ============\n")
 #Returning to the SVD
+
+#Index 2.2 - SVD
 
 print(" ================== SHOWCASING SVD FOR FULL MATRISES 2D =============\n")
 #We can showcase the utilization of SVD upon full matrices and shapes
@@ -2091,6 +2219,8 @@ print("Showcasing the results of comparisons: \nFirst comparison: " + str(first)
 
 print("========== END OF SHOWCASING OF REDUCED SVD, 4D CASE ==========\n")
 
+#Index 2.3 - VDot
+
 print("========== BEGINNING OF SHOWCASING OF VDOT ==========\n")
 
 #If we wish to get the dot product of two vectors, we can use vdot
@@ -2133,6 +2263,7 @@ print("Showcasing the result of np.vdot(a, b): \n " + str(result) + "\n")
 
 print("=========== SHOWCASING OF VDOT OVER ================\n")
 
+#Index 2.4 - Choose
 print("=========== SHOWCASING OF CHOOSE ==============\n")
 
 #If we wish, we can construct a indexed array and a set of arrays to choose from
@@ -2217,6 +2348,8 @@ print("Showcasing the result of choosing from np.choose(a, (c1, c2)), a 2x3x5 br
 
 print("================== END OF SHOWCASING CHOOSE INTERACTION =================\n")
 
+
+#Index 2.5 - Compression
 print("================== SHOWCASING COMPRESSION INTERACTION ==================\n")
 
 #We can, if we wish - return selected slices of an array along a given axis
@@ -2243,6 +2376,8 @@ print("Showcasing the indexing of the flattened array which selects elemens: \n"
 
 print("=================== END OF SHOWCASE OF COMPRESSION INTERACTION ================\n")
 
+
+#Index 2.6 - Cumprod/Cumsum/Inner Product
 print("=================== SHOWCASE OF CUMPROD INTERACTION ===============\n")
 
 #We can also return the cumulative product along a given axis
@@ -2349,6 +2484,7 @@ print("================ END OF SHOWCASING OF INNER PRODUCT ==========\n")
 #The original reason why i dragged up Tensordot, is due to the circumstance of that in higher dimensions,
 #the operations of INner is a sum product over the last axes.
 
+#Index 2.7 - Tensordot
 
 print("===================== SHOWCASING OF TENSORDOT ====================\n")
 
@@ -2664,6 +2800,7 @@ print("Showcasing the tensordot product: \n" + str(e) + "\n")
 
 print("============ END OF SHOWCASING OF TENSORDOT PRODUCT ============\n")
 
+#Index 2.8 - Numpy.ndarray.fill
 print("============ SHOWCASING OF numpy.ndarray.fill ============\n")
 
 a = np.array([1,2])
@@ -2685,6 +2822,7 @@ print("Showcasing the filled structure: \n" + str(a) + "\n")
 
 print("=========== END OF SHOWCASING OF numpy.ndarray.fill ==========\n")
 
+#Index 2.9 - np.imag
 print("============ SHOWCASING OF np.imag ============\n")
 
 #We can if we so wish, return the imaginary part of the complex argument
@@ -2702,6 +2840,8 @@ print("Showcasing float extraction in terms of complex elements: \n" + str(c) + 
 
 print("=========== END OF SHOWCASING OF np.imag ===========\n")
 
+
+#Index 3.0 - np.prod
 print("=========== SHOWCASING OF np.prod ================\n")
 
 #The inherent calculations in terms of prod on a 32-bit platform, is modular.
@@ -2742,6 +2882,7 @@ print("Showcasing the result from (np.prod([1,2,6], initial=10) \n" + str(x) + "
 
 print("============ END OF SHOWCASING OF np.prod ===============\n")
 
+#Index 3.1 - np.put
 print("============ SHOWCASING OF np.put ================\n")
 
 #We can also designate specified elementso f an array with specific values
@@ -2769,6 +2910,8 @@ print("Showcasing of x after put operation of: np.put(x, 30, -20, mode='clip') :
 
 print("=============== END OF SHOWCASE OF np.put ==========\n")
 
+
+#Index 3.2 - np.putmask
 print("============== SHOWCASING OF np.putmask ==============\n")
 
 #If we wish to conditionally change elements of a structure, we can use putmask
@@ -2791,6 +2934,8 @@ print("Showcasing x after modification: \n" + str(x) + "\n")
 
 print("=============== END OF SHOWCASING OF np.putmask ==============\n")
 
+
+#Index 3.3 - numpy.real
 print("=============== SHOWCASING OF numpy.real ===============\n")
 
 a = np.array([1+2j, 3+4j, 5+6j])
@@ -2816,6 +2961,8 @@ a = np.real(1 + 1j)
 print("Showcasing direct accessing of real components of complex arguments: \n" + str(a) + "\n")
 
 print("======================= END OF SHOWCASING OF numpy.real ==============\n")
+
+#Index 3.4 - numpy.sum
 
 print("================ SHOWCASING OF numpy.sum =================\n")
 
@@ -2864,6 +3011,8 @@ suming = np.sum([0.5, 1.5], initial=10) #10 + 0.5 + 1.5 -> 12
 print("Showcasing the sumation with other than start of 0: \n" + str(suming) + "\n")
 
 print("==================== END OF SHOWCASING OF numpy.sum ====================\n")
+
+#Index 3.5 - numpy.argmax
 
 print("==================== SHOWCASING OF numpy.argmax ====================\n")
 
@@ -2922,7 +3071,9 @@ print("Showcasing modified basic structure: \n" + str(a) + "\n")
 c = np.argmax(a) #Retrieve the index of max of where there is 2 5's, only first indice for 5 will be returned, 1
 print("Showcasing index retrieval of max upon duplicates found, only first is retrieved: \n" + str(c) + "\n")
 
+print("==================== SHOWCASING OF numpy.argmax OVER ====================\n")
 
+#Index 3.6 - np.unravel_index
 
 print("=========================== SHOWCASING OF UNRAVEL_INDEX ======================\n")
 
@@ -2982,6 +3133,8 @@ print("Showcasing a 7.6 unravel system call with np.unravel_index([22, 41, 37]) 
 
 print("====================== END OF SHOWCASING OF UNRAVEL_INDEX =================\n")
 
+#Index 3.7 - numpy.argmin
+
 print("===================== SHOWCASING OF numpy.argmin ========================\n")
 
 #The correspondant to argmax, is argmin
@@ -3039,6 +3192,8 @@ c = np.argmin(b) #Will assign 0, as the occurence of the first 0 is at index 0
 print("Showcasing of the argmin index accessing: \n" + str(c) + "\n")
 
 print("========================= END OF SHOWCASING OF ARGMIN ========================\n")
+
+#Index 3.8 - np.argsort
 
 print("========================= SHOWCASING OF argsort =============================\n")
 
@@ -3116,6 +3271,8 @@ print("Showcasing the structure after np.argsort(x, order=('y', 'x')): \n" + str
 
 print("============================== END OF SHOWCASING OF argsort =====================\n")
 
+#Index 3.9 - numpy.ptp
+
 print("============================== SHOWCASING OF numpy.ptp =========================\n")
 
 #Gives the sum of the range of two values between designated axises, as follows
@@ -3143,6 +3300,8 @@ print("Showcasing of np.ptp(x, axis=1): \n" + str(a) + "\n")
 
 print("=========================== END OF SHOWCASING OF PTP =======================\n")
 
+#Index 4.0 - numpy.searchsorted
+
 print("=========================== SHOWCASING OF numpy.searchsorted =================\n")
 
 #We can, if we wish - denote to find the indexes of where elements should be inserted to maintain order
@@ -3162,6 +3321,8 @@ insertionIndex = np.searchsorted([1,2,3,4,5], [-10, 10, 2, 3])
 print("Showcasing index result of np.searchsorted([1,2,3,4,5], [-10, 10, 2, 3]): \n" + str(insertionIndex) + "\n")
 
 print("============================ SHOWCASING OF np.searchsorted OVER ======================\n")
+
+#Index 4.1 - np.sort
 
 print("============================ SHOWCASING OF np.sort =============================\n")
 
@@ -3255,6 +3416,8 @@ print("Showcasing of order by order of height > age > shoesize > name: \n\n" + s
 
 print("======================= SHOWCASING OF np.sort DONE ======================\n")
 
+#Index 4.2 - np.all
+
 print("======================= SHOWCASING OF np.all =============================\n")
 
 #We can run operations of evaluations in terms of arrays of elements, such as to see if they evaluate to true
@@ -3300,6 +3463,8 @@ print("Showcasing result from np.all([1.0, np.nan]): \n" + str(result) + "\n")
 #As of such, i have excluded the showcasing of the keyword usage of out.
 
 print("========================= END OF SHOWCASE OF np.all ==================\n")
+
+#Index 4.3 - numpy.any
 
 print("========================= SHOWCASING numpy.any ======================\n")
 
@@ -3353,6 +3518,8 @@ print("Showcasing of result, performing np.any(base) call on [np.nan] : \n" + st
 
 print("========================= END OF SHOWCASING numpy.any ======================\n")
 
+#Index 4.4 - numpy.nonzero
+
 print("========================= SHOWCASING numpy.nonzero ======================\n")
 
 #If we wish to find out the indices of an array where the elements are non-zero, we can use numpy.nonzero
@@ -3402,6 +3569,8 @@ evaluations2 = ((a > 3).nonzero())
 print("Showcasing the result of running nonzero on the boolean array with .nonzero(): \n" + str(evaluations2) + "\n")
 
 print("========================= SHOWCASING OF numpy.nonzero() OVER =====================\n")
+
+#Index 4.5 - numpy.where()
 
 print("========================= SHOWCASING OF numpy.where() ===========================\n")
 
@@ -3487,6 +3656,8 @@ print("Showcasing of conversion in terms of indexes contra boolean structure: \n
 
 print("========================= SHOWCASING OF numpy.where() ENDED ===========================\n")
 
+#Index 4.6 - numpy.array_split()
+
 print("========================= SHOWCASING OF numpy.array_split ===========================\n")
 
 #If we wish to split arrays, we can do so by virtue of Array_split
@@ -3517,6 +3688,8 @@ print("Showcasing of the split command unto range of 30 structure: \n" + str(spl
 
 print("========================= SHOWCASING OF numpy.array_split ENDED ===========================\n")
 
+#Index 4.7 - numpy.column_stack
+
 print("========================= SHOWCASING OF numpy.column_stack =============================\n")
 
 #If we wish, we can stack columns by virtue of taking a sequence of 1-D arrays and stacking them as columns
@@ -3534,6 +3707,8 @@ print("Further illustrating shape of the resulting stack: \n" + str((stack.shape
 #The above is to illustrate that the arrays have been converted to a 2D stacked structure of 2 columns
 
 print("========================= SHOWCASING OF numpy.column_stack DONE =============================\n")
+
+#Index 4.8 - numpy.concatenate
 
 print("========================= SHOWCASING OF numpy.concatenate ==============================\n")
 
@@ -3589,6 +3764,8 @@ d = np.ma.concatenate([a,b]) #Does preserve masking
 print("Showcasing the result of running np.ma.concatenate: \n" + str(d) + "\n")
 
 print("=========================== SHOWCASING OF np.concatenate/np.ma.concatenate OVER ===============\n")
+
+#Index 4.9 - numpy.diagonal
 
 print("=========================== SHOWCASING OF numpy.diagonal ===============\n")
 
@@ -3672,6 +3849,8 @@ print("Showcasing second row taken diagonal from: \n" + str(secondDiag) + "\n")
 
 print("========================= SHOWCASING OF numpy.diagonal ENDED ==============\n")
 
+#Index 5.0 - numpy.dsplit
+
 print("========================= SHOWCASING OF numpy.dsplit ================\n")
 
 #If we wish, we can split arrays into smaller pieces - with parameters for categorization and 
@@ -3697,6 +3876,8 @@ print("Showcasing dsplit in terms of 30 range, into 3,6: \n" + str(d) + "\n") #G
 #to be empty arrays in terms of after the split
 
 print("========================= SHOWCASING OF numpy.dsplit DONE ================\n")
+
+#Index 5.1 - numpy.dstack
 
 print("========================= SHOWCASING OF numpy.dstack ==============\n")
 #We can, also - if we wish - stack based on depth along the third axis - This is similar to division by dsplit, as it
@@ -3728,6 +3909,8 @@ c = np.dstack((a,b))
 print("Showcasing in terms of stack result: \n" + str(c) + "\n")
 
 print("===================== END OF SHOWCASING numpy.dstack ==============\n")
+
+#Index 5.2 - numpy.hsplit
 
 print("===================== SHOWCASING OF numpy.hsplit ===================\n")
 
@@ -3774,6 +3957,8 @@ print("Showcasing in terms of the basesplit: \n" + str(basesplit) + "\n")
 
 print("===================== SHOWCASING OF numpy.hsplit OVER ===================\n")
 
+#Index 5.3 - numpy.hstack
+
 print("===================== SHOWCASING OF numpy.hstack ========================\n")
 
 #We can stack arrays horizontally - which rebuilds the arrays from the horizontal splits
@@ -3799,6 +3984,8 @@ print("Showcasing the horizontal stack: \n" + str(horizontalstack) + "\n")
 
 print("=================== SHOWCASING OF numpy.hstack OVER ===============\n")
 
+#Index 5.4 - numpy.ndarray.item
+
 print("=================== SHOWCASING OF numpy.ndarray.item ===============\n")
 
 #We can access copies of a specific element at specific indexes if we so wish
@@ -3816,6 +4003,8 @@ item = base.item(2,2) #Same as treating the structure as an array with [2][2]
 print("Showcasing the accessing of a row and a index: \n" + str(item) + "\n")
 
 print("====================== SHOWCASING OF ndarray.item OVER ===========================\n")
+
+#Index 5.5 - numpy.newaxis
 
 print("====================== SHOWCASING OF numpy.newaxis =============================\n")
 
@@ -3865,6 +4054,8 @@ print("Showcase the new shape: \n" + str(base.shape) + "\n") #Note how when we m
 # to 3,1,1,1,3,5 in terms of Shape
 
 print("=================== SHOWCASING OF numpy.newaxis OVER ===============\n")
+
+#Index 5.6 - numpy.ravel
 
 print("=================== SHOWCASING OF numpy.ravel ====================\n")
 
@@ -3958,6 +4149,8 @@ print("Showcasing the kravel result from swapped axises: \n" + str(kRavel) + "\n
 
 print("====================== SHOWCASING OF np.ravel OVER ===================\n")
 
+#Index 5.7 - np.repeat
+
 print("====================== SHOWCASING OF np.repeat ===================\n")
 
 #We can run into repeating across different axises, if we so wish
@@ -3991,6 +4184,8 @@ baseRepeatedAxis2 = np.repeat(base, [10, 10], axis=0) #Denote on what direction 
 print("Showcasing np.repeat(base, [10, 10], axis=0) : \n" + str(baseRepeatedAxis2) + "\n")
 
 print("========================= SHOWCASING OF np.repeat OVER =====================\n")
+
+#Index 5.8 - np.reshape
 
 print("========================= SHOWCASING OF numpy.reshape ======================\n")
 
@@ -4033,6 +4228,8 @@ print("Showcasing the result of reshaping in terms of implicit formation with -1
 
 print("============================ SHOWCASING OF RESHAPE OVER =========================\n")
 
+#Index 5.9 - np.resize
+
 print("============================= SHOWCASING OF RESIZE ===============================\n")
 
 #If we wish to resize, we can do so. 
@@ -4051,6 +4248,8 @@ e = d.resize(10, 10) #To denote difference in how elements are filled out.
 print("Showcasing the difference in <base element>.resize contra np.resize(columns, rows): \n" + str(e) + "\n")
 
 print("================================= SHOWCASING OF RESIZE OVER =================\n")
+
+#Index 6.0 - numpy.squeeze
 
 print("================================= SHOWCASING OF numpy.squeeze =================\n")
 
@@ -4088,6 +4287,8 @@ squeezedAxisTwo = np.squeeze(base, axis=2)
 print("Showcasing the squeezed along axis 2 structure shape: \n" + str(squeezedAxisTwo.shape) + "\n")
 
 print("==================== SHOWCASING OF numpy.squeeze OVER =================\n")
+
+#Index 6.1 - numpy.swapaxes
 
 print("==================== SHOWCASING OF numpy.swapaxes =====================\n")
 
@@ -4141,6 +4342,8 @@ print("Showcase the swapped axes of axis 2: \n" + str(swapAxisTwo) + "\n")
 
 print("================= SHOWCASING OF numpy.swapaxes OVER ================\n")
 
+#Index 6.2 - Slicing and np.index_exp
+
 print("================= SHOWCASING OF the slicing dynamics of np and np.index_exp =============== \n")
 
 #Now, to fully understand the documentation of numpy.take and the integration - we have to cover other areas first, as well.
@@ -4161,6 +4364,8 @@ result = np.index_exp[2::2]
 print("Showcasing in terms of the sliced tuple object: \n" + str(result) + "\n")
 
 print("================= SHOWCASING OF the slicing dynamics of np and np.index_exp  OVER =============== \n")
+
+#Index 6.3 - numpy.take
 
 print("======================== SHOWCASING OF numpy.take ======================\n")
 
@@ -4189,6 +4394,8 @@ print("Showcasing of the result: \n" + str(result) + "\n")
 
 print("===================== SHOWCASING OF numpy.take OVER =======================\n")
 
+#Index 6.4 - numpy.transpose
+
 print("===================== SHOWCASING OF numpy.transpose ========================\n")
 
 #We can, if we wish - perform transpositions in terms of reshapes as follows
@@ -4213,6 +4420,8 @@ transpose = np.transpose(base, (2,0,1)) #Basically flips it from Vertical to hor
 print("Showcasing the transpose by virtue of specific indexes: \n" + str(transpose) + "\n")
 
 print("========================= SHOWCASING OF TRANSPOSE OVER ======================\n")
+
+#Index 6.5 - numpy.vsplit
 
 print("========================= SHOWCASING OF numpy.vsplit ==========================\n")
 
@@ -4243,6 +4452,8 @@ print("Showcasing base having been split with np.vsplit along axis 0: \n" + str(
 
 print("========================== SHOWCASING OF vsplit OVER ====================\n")
 
+#Index 6.6 - numpy.vstack
+
 print("========================== SHOWCASING OF vstack =========================\n")
 
 #Stacks on the vertical
@@ -4270,6 +4481,8 @@ print("Showcasing the result: \n" + str(result) + "\n")
 
 print("================== END OF SHOWCASING OF vstack ================\n")
 
+#Index 6.7 - numpy.astype
+
 print("================== SHOWCASING OF astype ===================\n")
 
 base = np.array([1, 2, 2.5])
@@ -4287,6 +4500,8 @@ base[2] = 30.1 #Modify to illustrate that copy is not affected by assignment of 
 print("Showcasing the base structure that was modified: \n" + str(base) + "\n\nShowcasing the casted version: " + str(base2) + "\n")
 
 print("================== SHOWCASING OF astype OVER =================\n")
+
+#Index 6.8 - numpy.atleast_1d
 
 print("================== SHOWCASING OF numpy.atleast_1d =============\n")
 
@@ -4317,6 +4532,8 @@ print("Showcasing the base structure: \n" + str(base) + "\n")
 
 print("=================== SHOWCASING OF np.atleast_1d OVER ======================\n")
 
+#Index 6.9 - numpy.atleast_2d
+
 print("=================== SHOWCASING OF numpy.atleast_2d ========================\n")
 
 #The slight difference of 2d is that copies are avoided and views of two or more dims are returned.
@@ -4344,6 +4561,8 @@ print("Showcasing in terms of encapsulated isolated elements: \n" + str(base) + 
 
 print("==================== END OF SHOWCASING OF np.atleast_2d ===============\n")
 
+#Index 7.0 - numpy.atleast_3d
+
 print("==================== SHOWCASING OF numpy.atleast_3d ==================\n")
 
 #We can, if we wish - reformulate the shaping and handling to be 3D, as can be showcased
@@ -4362,6 +4581,8 @@ print("Showcasing the shape of the new reformation: \n" + str(base.shape) + "\n"
 
 print("=================== END OF SHOWCASING OF numpy.atleast_3d ===============\n")
 
+#Index 7.1 - numpy.mat
+
 print("=================== SHOWCASING OF numpy.mat ========================\n")
 
 base = np.array([[1,2], [3,4]]) #We can transform the typing to be as a Matris
@@ -4374,6 +4595,8 @@ base = np.asmatrix(base)
 print("Showcasing the changed typing of base: \n" + str(type(base)) + "\n")
 
 print("================== SHOWCASING OF numpy.mat OVER ===================\n")
+
+#Index 7.2 - numpy.arange
 
 print("================== SHOWCASING OF numpy.arange ===================\n")
 
@@ -4396,6 +4619,8 @@ base = np.arange(3,11,2) #Showcase stepping between 3 and 10 with 2 length step
 print("Showcase the range between 3 and 10, 2 step difference: \n" + str(base) + "\n")
 
 print("============= SHOWCASING OF numpy.arange OVER ================\n")
+
+#Index 7.3 - numpy.array
 
 print("============= SHOWCASING OF numpy.array ======================\n")
 
@@ -4476,6 +4701,8 @@ print("Showcasing in terms of the base typing of the base structure: \n" + str(t
 
 print("======================= SHOWCASING OF np.array dynamics OVER ================\n")
 
+#Index 7.4 - numpy.copy
+
 print("======================= SHOWCASING OF numpy.copy =====================\n")
 
 #We can, if we wish - interact with copying objects and parts
@@ -4503,6 +4730,8 @@ print("Showcasing of the comparison between base[0] and z[0]: \n" + str(result) 
 
 print("======================== SHOWCASING OF numpy.copy OVER ============\n")
 
+#Index 7.5 - numpy.empty
+
 print("======================== SHOWCASING OF numpy.empty ==============\n")
 
 #We can, if we wish - create an array with the given shape and type, without initializing entries
@@ -4517,6 +4746,8 @@ base = np.empty([2, 2], dtype=int)
 print("Showcasing in terms of random initialization of specific typing: \n" + str(base) + "\n")
 
 print("========================= SHOWCASING OF numpy.empty OVER ==============\n")
+
+#Index 7.6 - numpy.empty_like
 
 print("========================= SHOWCASING OF numpy.empty_like ================\n")
 
@@ -4540,6 +4771,8 @@ print("Showcasing in terms of float random initialization: \n" + str(floatBase) 
 
 print("========================= SHOWCASING OF numpy.empty_like OVER ===============\n")
 
+#Index 7.7 - numpy.eye
+
 print("========================= SHOWCASING OF numpy.eye ==========================\n")
 
 #Where of, if we wish to get a 2d array with ones on the diagonal and zeros elsewhere
@@ -4553,6 +4786,8 @@ base = np.eye(3, k=1) #Where of we can construct a 3x3 structure with a diagonal
 print("Showcasing in terms of the base of a 3x3, k1: \n" + str(base) + "\n")
 
 print("=========================== END OF SHOWCASING OF numpy.eye ====================\n")
+
+#Index 7.8 - numpy.fromfile
 
 print("=========================== SHOWCASING OF numpy.fromfile ========================\n")
 
@@ -4597,6 +4832,8 @@ print("Showcasing the baseLoad contents: \n" + str(baseLoad) + "\n")
 
 print("======================== END OF SHOWCASING OF numpy.fromfile ===============\n")
 
+#Index 7.9 - numpy.fromfunction
+
 print("======================== SHOWCASING OF numpy.fromfunction ==================\n")
 
 #If we wish, we can construct a structure based from a function integration, as can be showcased
@@ -4625,6 +4862,8 @@ print("Showcasing in terms of the base structure: \n" + str(base) + "\n")
 
 print("=================== SHOWCASING OF numpy.fromfunction OVER ==================\n")
 
+#Index 8.0 - numpy.identity
+
 print("=================== SHOWCASING OF numpy.identity =======================\n")
 
 #This simply returns the identity array, which is a square array with ones on the main diagonal
@@ -4635,6 +4874,9 @@ base = np.identity(9) #When we define the identity of 9, we mean the diagonal of
 print("Showcasing the identity of a diagonal system of 9x9: \n" + str(base) + "\n") 
 
 print("==================== SHOWCASING OF numpy.identity OVER ================\n")
+
+
+#Index 8.1 - numpy.linspace
 
 print("==================== SHOWCASING OF numpy.linspace =====================\n")
 
@@ -4671,6 +4913,8 @@ base2 = np.linspace(0, 10, amountofpoints, endpoint=False)
 
 print("======================= SHOWCASING OF numpy.linspace OVER ==================\n")
 
+#Index 8.2 - numpy.mgrid
+
 print("======================= SHOWCASING OF numpy.mgrid =========================\n")
 
 base = np.mgrid[-1:7.5,-2:2] #In case of float point numbers, rounding down is accounted for
@@ -4693,6 +4937,8 @@ print("Showcasing in terms of the mesh grid, where we are using a startpoint tha
 
 print("==================== SHOWCASING OF numpy.mgrid OVER ========================\n")
 
+#Index 8.3 - numpy.ogrid
+
 print("==================== SHOWCASING OF numpy.ogrid ============================\n")
 
 #Now, the difference between mgrid and ogrid - is that mgrid is a fleshed out mesh net structure.
@@ -4710,6 +4956,8 @@ base = ogrid[10:11,0:10] #Runs first pattern on Vertical, second on Horizontal
 print("Showcasing the base structure in terms of without complex args: \n" + str(base) + "\n")
 
 print("===================== SHOWCASING OF numpy.ogrid OVER ======================\n")
+
+#Index 8.4 - numpy.ones
 
 print("===================== SHOWCASING OF numpy.ones ============================\n")
 
@@ -4741,6 +4989,8 @@ print("Showcasing the base shape of a designated structure of np.ones((10,2)): \
 
 print("======================= SHOWCASING OF np.ones OVER =======================\n")
 
+#Index 8.5 - numpy.ones_like
+
 print("======================= SHOWCASING OF numpy.ones_like ======================\n")
 
 #Where of if we wish to yield an array that supports the same shape and type as the given array
@@ -4763,6 +5013,8 @@ print("Showcasing of the copied structure but with 1's: \n" + str(onesBaseShape)
 #Do keep in mind, that typing is kept as well - as in, if a Float range is copied - then that structure is kept.
 
 print("========================== SHOWCASING OF numpy.ones_like OVER ===================\n")
+
+#Index 8.6 - numpy.zeros
 
 print("========================== SHOWCASING OF numpy.zeros =======================\n")
 
@@ -4794,6 +5046,8 @@ base = np.zeros((3,), dtype=[('x', 'i4'), ('y', 'i4'), ('a', 'i4'), ('b', 'i4'),
 print("Showcasing the base structure in terms of initialized with several dtypes: \n" + str(base) + "\n")
 
 print("====================== SHOWCASING OF numpy.zeros =========================\n")
+
+#Index 8.7 - numpy.zeros_like
 
 print("====================== SHOWCASING OF numpy.zeros_like ======================\n")
 
